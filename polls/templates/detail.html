@@ -1,0 +1,49 @@
+{% load static %}
+
+
+
+<link rel='stylesheet' type='text/css' href="{% static 'polls/style.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- This is an alternative method -->
+
+    <!-- {% if context %}
+    {% for que, options in context.items %}
+    <p><h3>{{que}}?</h3></p> -->
+    
+        <!-- {% for option in options %}
+        <ul><li>{{option}}</li></ul>
+        {% endfor %}
+    {% endfor %}
+    {%else%}
+    <p> No data yet!! </p>
+    {% endif %} -->
+<h1>{{context.id}}.{{context}}?</h1>
+<ul>
+{% if error_message %}
+    <strong>{{error_message}}</strong>
+{% endif %}
+    
+     <form method='POST' action= "{% url 'polls:vote' context.id %}">
+        {% for choice in context.choice_set.all %}
+        {%csrf_token%}
+        <input type='radio' name='choice' value={{choice.id}} id="choice{{forloop.counter}}">
+        <label for="choice{{forloop.counter}}">{{choice}}</label><br>
+    {% endfor %}
+
+
+    <input type="submit" value="Cast Vote">
+    </form>
+
+
+ </ul>
+
+</body>
+</html>

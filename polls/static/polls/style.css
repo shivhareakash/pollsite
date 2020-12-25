@@ -1,0 +1,43 @@
+li  {
+    color:white;
+    font-size: 25px;
+}
+
+
+a {
+    color:whitesmoke;
+    font-size: 34px;
+
+}
+
+a.visited {
+    color:yellow;
+
+}
+
+a.hover {
+    color:tomato;
+
+}
+
+h1 {
+    color:seashell;
+}
+
+
+
+body {
+    background:white url("images/bg.jpg") no-repeat;
+}
+
+
+
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid #444;
+    border-radius: 4px;
+}

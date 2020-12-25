@@ -1,0 +1,25 @@
+{% load static %}
+
+
+<link rel='stylesheet' type='text/css' href="{% static 'polls/style.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here are the results of the question-<br> {{question}}</h1></body>
+    <ul>
+    {% for choice in question.choice_set.all %}
+    <li>{{choice.choice_text}} has got- {{choice.votes}} Vote{{choice.votes|pluralize}}</li>
+    {% endfor %}
+</ul>
+
+
+<br>
+<a href="{% url 'polls:index' %}">Return home</a><br>
+<a href="{% url 'polls:detail' question.id %}">Cast Vote again to this question</a>
+</html>
